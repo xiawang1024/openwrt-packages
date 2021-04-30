@@ -71,11 +71,11 @@ notify() {
     sckey=$(uci_get_by_type global serverchan)
     if [ ! -z $sckey ]; then
         serverurlflag=$(uci_get_by_type global serverurl)
-        serverurl=https://sc.ftqq.com/
+        serverurl=https://next-api-theta.vercel.app/api/
         if [ "$serverurlflag" = "sct" ]; then
             serverurl=https://sctapi.ftqq.com/
         fi
-        wget-ssl -q --output-document=/dev/null --post-data="text=$title~&desp=$desc" $serverurl$sckey.send
+        wget-ssl -q --output-document=/dev/null --post-data="text=$title~&desp=$desc" $serverurl$sckey
     fi
     
     #Dingding

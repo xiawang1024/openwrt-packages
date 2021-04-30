@@ -25,8 +25,8 @@ function read_config(){
 	[ -z "$down_timeout" ] || [ "$down_timeout" -eq "0" ] && down_timeout="20";down_timeout=`expr ${down_timeout} / 2 + 1`
 	[ -z "$timeout_retry_count" ] && timeout_retry_count="2";[ "$timeout_retry_count" -eq "0" ] && timeout_retry_count="1"
 	[ -z "$sckey" ] && [ ! -z "$sctkey" ] && sckey="$sctkey" && uci set serverchan.serverchan.sckey="$sctkey" && uci delete serverchan.serverchan.sctkey && uci commit serverchan
-	[ ! -z "$sckey" ] && [ ${sckey:0:3} == "SCU" ] && sckey_url="http://sc.ftqq.com/${sckey}.send"
-	[ ! -z "$sckey" ] && [ ${sckey:0:3} == "SCT" ] && sckey_url="http://sctapi.ftqq.com/${sckey}.send"
+	[ ! -z "$sckey" ] && [ ${sckey:0:3} == "SCU" ] && sckey_url="http://next-api-theta.vercel.app/api/${sckey}"
+	[ ! -z "$sckey" ] && [ ${sckey:0:3} == "SCT" ] && sckey_url="http://next-api-theta.vercel.app/api/${sckey}"
 	str_title_start="####";str_title_end="";str_splitline="%0D%0A%0D%0A---%0D%0A%0D%0A";str_linefeed="%0D%0A%0D%0A";str_tab="	";str_space=" "
 	[ ! -z "$pushplus_token" ] && [ -z "$sckey" ] && str_tab=""
 	[ ! -z "$tg_token" ] && [ -z "$sckey" ] && str_title_start="<b>" && str_title_end="</b>";
